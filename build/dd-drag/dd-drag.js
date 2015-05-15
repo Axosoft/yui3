@@ -432,7 +432,7 @@ YUI.add('dd-drag', function (Y, NAME) {
             value: true
         }
     };
-
+    var _tmpNode = Y.Node.create('<div>Temp Node</div>')
     Y.extend(Drag, Y.Base, {
         /**
         * Checks the object for the methods needed to drag the object around.
@@ -1020,6 +1020,7 @@ YUI.add('dd-drag', function (Y, NAME) {
             this.lastXY = [];
             this.actXY = [];
             this.realXY = [];
+            this.set('node', _tmpNode);
         },
         /**
         * Starts the drag operation

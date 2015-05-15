@@ -299,7 +299,10 @@
         * @method _dropMove
         */
         _dropMove: function() {
-            if (this._hasActiveShim()) {
+            // updating below condition to make sure there is an active drag that is
+            // actually dragging (i.e. has fired a drag start event)
+            // otherwise we end up with drop hits without drag starts
+            if (this._hasActiveShim()  && this.activeDrag && this.activeDrag.get('dragging')) {
                 this._handleTargetOver();
             } else {
                 Y.Object.each(this.otherDrops, function(v) {

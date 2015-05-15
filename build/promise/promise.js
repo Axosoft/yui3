@@ -207,7 +207,9 @@ Promise.isPromise = function (obj) {
     // Use try...catch when retrieving obj.then. Return false if it throws
     // See Promises/A+ 1.1
     try {
-        then = obj.then;
+        if(obj) {
+            then = obj.then;
+        }
     } catch (_) {}
     return typeof then === 'function';
 };

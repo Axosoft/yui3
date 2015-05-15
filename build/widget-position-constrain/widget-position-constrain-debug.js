@@ -299,7 +299,7 @@ PositionConstrain.prototype = {
     _enableConstraints : function(enable) {
         if (enable) {
             this.constrain();
-            this._cxyHandle = this._cxyHandle || this.on(CONSTRAIN_XYCHANGE, this._constrainOnXYChange);
+            this._cxyHandle = this._cxyHandle || this.on('xyChange', this._constrainOnXYChange);
         } else if (this._cxyHandle) {
             this._cxyHandle.detach();
             this._cxyHandle = null;
